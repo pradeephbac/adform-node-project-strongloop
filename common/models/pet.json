@@ -1,0 +1,56 @@
+{
+  "name": "Pet",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "colour": {
+      "type": "string"
+    },
+    "age": {
+      "type": "number"
+    },
+    "breed": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "Number"
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "Owner",
+      "foreignKey": ""
+    }
+  },
+  "acls": [{
+    "accessType": "READ",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW"
+  },
+  {
+    "accessType": "WRITE",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW"
+  },
+  {
+    "accessType": "UPDATE",
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW"
+  }],
+  "methods": {}
+}
